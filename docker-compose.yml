@@ -16,3 +16,11 @@ services:
       - ./var/php/.composer:/root/.composer
     links:
       - db
+  nginx:
+    build: ./docker/nginx
+    volumes_from:
+      - php
+    links:
+      - php
+    ports:
+      - 8080:8080
