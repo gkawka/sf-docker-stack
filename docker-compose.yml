@@ -9,3 +9,10 @@ services:
       MYSQL_DATABASE: symfony
       MYSQL_USER: symfony
       MYSQL_PASSWORD: symfony
+  php:
+    build: ./docker/php
+    volumes:
+      - ./src:/var/www/html/app
+      - ./var/php/.composer:/root/.composer
+    links:
+      - db
